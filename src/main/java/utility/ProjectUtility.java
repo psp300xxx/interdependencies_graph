@@ -18,4 +18,13 @@ public class ProjectUtility {
         return result;
     }
 
+    public static boolean closeEnough(double a, double b){
+        return closeEnough(a, b, 1E-6);
+    }
+
+    public static boolean closeEnough(double a, double b, double eps){
+        double diff = a - b;
+        return Math.abs(diff) < eps;
+    }
+
 }

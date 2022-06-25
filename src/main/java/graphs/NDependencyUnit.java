@@ -16,6 +16,7 @@ public class NDependencyUnit implements Unit{
 
     private double unitWeightOverConnections = 1.0;
 
+
     private List<Unit> connections;
 
     public NDependencyUnit(String name){
@@ -31,6 +32,17 @@ public class NDependencyUnit implements Unit{
         return name;
     }
 
+    public double getUnitWeightOverConnections(){
+        return unitWeightOverConnections;
+    }
+
+    public void setUnitWeightOverConnections(double newWeightOverConnections){
+        if( newWeightOverConnections>1.0 || newWeightOverConnections<0.0 ){
+            throw new IllegalArgumentException("Weight must be in [0,1] range");
+        }
+        this.unitWeightOverConnections = newWeightOverConnections;
+    }
+
     public double unitStateWeightOverConnections(){
         return unitWeightOverConnections;
     }
@@ -41,19 +53,11 @@ public class NDependencyUnit implements Unit{
 
     public double getConnectionWeight(Unit connection){
         int n = connections.size();
-        if( anyConnectionHasSameWeight() ){
-            return (1 - unitStateWeightOverConnections()) * (1/n);
+        if (dependencyRateValues.size() == 1){
+            return 1.0;
         }
-        double remainingWeight = 1 - unitStateWeightOverConnections();
-        Double weight = dependencyRateValues.get(connection);
-        if(weight!=null){
-            return remainingWeight * weight;
-        }
-        double weightAssigned = 0.0;
-        for( Double assignedWeight : dependencyRateValues.values() ){
-            weightAssigned+=assignedWeight;
-        }
-        return remainingWeight * ( 1-weightAssigned ) * ( 1/( n - dependencyRateValues.values().size() ) );
+        double weight = dependencyRateValues.get(connection);
+        return weight;
     }
 
     @Override
@@ -104,8 +108,7 @@ public class NDependencyUnit implements Unit{
             connections = new ArrayList<>();
         }
         connections.add(unit);
-        if( weight!=null ){
-            adaptWeightAddingNewOne(unit, weight);
-        }
+        double connectionWeight = weight != null ? weight : 0.01;
+        adaptWeightAddingNewOne(unit, connectionWeight);
     }
 }
