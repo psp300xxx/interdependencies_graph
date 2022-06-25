@@ -16,6 +16,10 @@ public class NDependencyUnit implements Unit{
 
     private double unitWeightOverConnections = 1.0;
 
+    @Override
+    public double getUnitState() {
+        return unitState;
+    }
 
     private List<Unit> connections;
 
@@ -60,15 +64,45 @@ public class NDependencyUnit implements Unit{
         return weight;
     }
 
-    @Override
-    public double getState() {
+    public double getState(Set<Unit> visitedUnits) {
+        if(visitedUnits.contains(this)){
+            return getUnitState();
+        }
+        visitedUnits.add(this);
         double mean =  (unitState * unitWeightOverConnections );
         double connectionMean = 0.0;
         for( Unit connection : getConnections() ){
             double currentWeight = getConnectionWeight(connection);
-            connectionMean += connection.getState() * currentWeight;
+            connectionMean += connection.getState(visitedUnits) * currentWeight;
         }
         return mean + ( 1 - unitWeightOverConnections ) * connectionMean;
+    }
+
+    @Override
+    public int hashCode() {
+        return getName().hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(!(obj instanceof AloneUnit)){
+            return false;
+        }
+        if( obj == this ){
+            return true;
+        }
+        AloneUnit other = (AloneUnit) obj;
+        return other.getName().equals(this.getName());
+    }
+
+    @Override
+    public String toString() {
+        return String.format("[NDependencyUnit] Name=%s, State=%s", getName(), getUnitState());
+    }
+
+    @Override
+    public double getState() {
+        return getState( new HashSet<>() );
     }
 
     public void setUnitState(double unitState){
@@ -97,6 +131,33 @@ public class NDependencyUnit implements Unit{
 
     public void addConnection(Unit unit){
         addConnection(unit, null);
+    }
+
+    public static class WeightSumNotCloseTo1Exception extends RuntimeException {
+        private List<Double> weights;
+
+        public WeightSumNotCloseTo1Exception(List<Double> weights){
+            this.weights = weights;
+        }
+
+        @Override
+        public String getMessage() {
+            return String.format("Weights: %s have no sum close to 1", weights);
+        }
+    }
+
+    public void setManualWeights(List<Double> weights){
+        if( weights.size()!=dependencyRateValues.size() ){
+            throw new IllegalArgumentException("Each connection has to have its own weight");
+        }
+        double weightSum = weights.stream().reduce( (x,y)->{return x+y;} ).get();
+        if( !ProjectUtility.closeEnough(weightSum, 1.0) ){
+            throw new WeightSumNotCloseTo1Exception(weights);
+        }
+        int curr = 0;
+        for( Unit connection : dependencyRateValues.keySet() ){
+            dependencyRateValues.put(connection, weights.get(curr++));
+        }
     }
 
 

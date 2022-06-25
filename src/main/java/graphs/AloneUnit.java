@@ -1,9 +1,6 @@
 package graphs;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class AloneUnit implements Unit{
 
@@ -26,6 +23,11 @@ public class AloneUnit implements Unit{
         return state;
     }
 
+    @Override
+    public double getState(Set<Unit> visitedUnit) {
+        return state;
+    }
+
     public void setState(double newState){
         this.state = newState;
     }
@@ -41,6 +43,33 @@ public class AloneUnit implements Unit{
             connections = new ArrayList<>();
         }
         connections.add(newConnection);
+    }
+
+    @Override
+    public double getUnitState() {
+        return state;
+    }
+
+    @Override
+    public int hashCode() {
+        return getName().hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(!(obj instanceof AloneUnit)){
+            return false;
+        }
+        if( obj == this ){
+            return true;
+        }
+        AloneUnit other = (AloneUnit) obj;
+        return other.getName().equals(this.getName());
+    }
+
+    @Override
+    public String toString() {
+        return String.format("[AloneUnit] Name=%s, State=%s", getName(), getState());
     }
 
     @Override
