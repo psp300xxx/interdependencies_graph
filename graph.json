@@ -1,0 +1,118 @@
+{
+    "starting_node": "Forest",
+    "nodes": [
+        {
+            "name": "Forest",
+            "state": 0.7,
+            "type": "class graphs.NDependencyUnit",
+            "connections": [
+                {
+                    "weight": 0.07228281634293517,
+                    "target": "unit8"
+                },
+                {
+                    "weight": 0.0814818128675257,
+                    "target": "unit4"
+                },
+                {
+                    "weight": 0.6,
+                    "target": "Glacier"
+                },
+                {
+                    "weight": 0.0792973828559842,
+                    "target": "unit6"
+                },
+                {
+                    "weight": 0.08461861518113707,
+                    "target": "unit0"
+                },
+                {
+                    "weight": 0.08231937275241788,
+                    "target": "unit2"
+                }
+            ]
+        },
+        {
+            "name": "unit8",
+            "state": 0.6,
+            "type": "class graphs.AloneUnit"
+        },
+        {
+            "name": "unit4",
+            "state": 0.6,
+            "type": "class graphs.AloneUnit"
+        },
+        {
+            "name": "Glacier",
+            "state": 0.7,
+            "type": "class graphs.NDependencyUnit",
+            "connections": [
+                {
+                    "weight": 0.07228281634293517,
+                    "target": "unit9"
+                },
+                {
+                    "weight": 0.0814818128675257,
+                    "target": "unit5"
+                },
+                {
+                    "weight": 0.0792973828559842,
+                    "target": "unit7"
+                },
+                {
+                    "weight": 0.08461861518113707,
+                    "target": "unit1"
+                },
+                {
+                    "weight": 0.6,
+                    "target": "Forest"
+                },
+                {
+                    "weight": 0.08231937275241788,
+                    "target": "unit3"
+                }
+            ]
+        },
+        {
+            "name": "unit6",
+            "state": 0.6,
+            "type": "class graphs.AloneUnit"
+        },
+        {
+            "name": "unit0",
+            "state": 0.6,
+            "type": "class graphs.AloneUnit"
+        },
+        {
+            "name": "unit2",
+            "state": 0.6,
+            "type": "class graphs.AloneUnit"
+        },
+        {
+            "name": "unit9",
+            "state": 0.6,
+            "type": "class graphs.AloneUnit"
+        },
+        {
+            "name": "unit5",
+            "state": 0.6,
+            "type": "class graphs.AloneUnit"
+        },
+        {
+            "name": "unit7",
+            "state": 0.6,
+            "type": "class graphs.AloneUnit"
+        },
+        {
+            "name": "unit1",
+            "state": 0.6,
+            "type": "class graphs.AloneUnit"
+        },
+        {
+            "name": "unit3",
+            "state": 0.6,
+            "type": "class graphs.AloneUnit"
+        }
+    ],
+    "name": "test_graph"
+}

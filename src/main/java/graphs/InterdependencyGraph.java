@@ -1,8 +1,8 @@
 package graphs;
 
-import org.jgrapht.Graph;
-import org.jgrapht.graph.AsUnweightedGraph;
-import org.jgrapht.graph.DefaultEdge;
+
+
+import org.json.JSONObject;
 
 import java.util.*;
 import java.util.function.Consumer;
@@ -21,6 +21,14 @@ public interface InterdependencyGraph<T extends Unit>  {
         return result;
     }
 
+    default String getGraphString(){
+        StringBuilder sb = new StringBuilder();
+        visitGraph( (x)->{sb.append(x.getNodesConnectionsString() +"\n");} );
+        return sb.toString();
+    }
+
+    void startUpdates();
+
     void visitGraph(Consumer<Unit> consumer);
 
     default double getMeanState(){
@@ -32,7 +40,7 @@ public interface InterdependencyGraph<T extends Unit>  {
         while(!unitQueue.isEmpty()){
             Unit nextUnit = unitQueue.poll();
             visitedUnits.add(nextUnit);
-            for( Unit edgeUnit : nextUnit.getConnections() ){
+            for( Unit edgeUnit : nextUnit.getConnections(false) ){
                 if(!visitedUnits.contains(edgeUnit)){
                     unitQueue.add(edgeUnit);
                 }

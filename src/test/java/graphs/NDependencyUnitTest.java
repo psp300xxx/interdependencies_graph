@@ -10,26 +10,16 @@ public class NDependencyUnitTest {
 
     private NDependencyUnit unit = new NDependencyUnit("test");
 
-    private final double unitWeightOverConnections = 0.5;
-
     private final double connectionState = 0.5;
     private final int CONNECTION_NUMBER = 5;
 
     @Before
     public void addConnections(){
-        unit.setUnitWeightOverConnections(unitWeightOverConnections);
         for( int i = 0 ; i<CONNECTION_NUMBER ; i++  ){
             AloneUnit newUnit = new AloneUnit(String.format("aloneUnit%d", i));
             newUnit.setState( connectionState );
-            unit.addConnection( newUnit );
+            unit.addConnection( newUnit, false );
         }
-    }
-
-    @Test
-    public void getCorrectState(){
-        double unitState = unit.getState();
-        double expectedState = 0.75;
-        assertTrue(ProjectUtility.closeEnough(unitState, expectedState));
     }
 
     @Test
@@ -38,10 +28,10 @@ public class NDependencyUnitTest {
         AloneUnit secondUnit = new AloneUnit(String.format("aloneUnit%d", CONNECTION_NUMBER+2));
         newUnit.setState( connectionState );
         secondUnit.setState(connectionState);
-        unit.addConnection(newUnit, 0.3);
-        unit.addConnection( secondUnit, 0.2 );
+        unit.addInboundConnection(newUnit, 0.3);
+        unit.addInboundConnection( secondUnit, 0.2 );
         double sum = 0.0;
-        for( Unit connection : unit.getConnections() ){
+        for( Unit connection : unit.getConnections(true) ){
             sum+=unit.getConnectionWeight(connection);
         }
         assertTrue( ProjectUtility.closeEnough(sum, 1.0) );
@@ -49,7 +39,7 @@ public class NDependencyUnitTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testConnectionWrongWeight(){
-        unit.addConnection(unit, 1.2);
+        unit.addInboundConnection(unit, 1.2);
     }
 
 }

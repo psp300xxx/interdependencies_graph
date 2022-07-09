@@ -16,7 +16,7 @@ import static org.junit.Assert.assertTrue;
 public class InterdependencyGraphTest {
 
     private AloneUnit unit = new AloneUnit("startingunit");
-    private InterdependencyGraph<Unit> graph = new InterdependencyGraphImpl(unit);
+    private InterdependencyGraph<Unit> graph = new InterdependencyGraphImpl(unit, "test", 1);
     private final int HIERARCHY_LENGTH = 10;
 
     private Set<Unit> units;
@@ -32,7 +32,7 @@ public class InterdependencyGraphTest {
             AloneUnit newUnit = new AloneUnit("Unit"+i);
             newUnit.setState(0.5);
             units.add(newUnit);
-            curr.addConnection(newUnit);
+            curr.addConnection(newUnit, false);
             curr = newUnit;
         }
     }
