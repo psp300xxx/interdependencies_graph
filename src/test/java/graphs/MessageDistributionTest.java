@@ -12,7 +12,7 @@ import static org.junit.Assert.assertTrue;
 
 public class MessageDistributionTest {
 
-    private int numberOfThreads = 5;
+    private int numberOfThreads = Runtime.getRuntime().availableProcessors();
     private int numberOfNodes = 5;
     private InterdependencyGraph<Unit> interdependencyGraph;
 

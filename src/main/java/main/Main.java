@@ -35,6 +35,7 @@ public class Main implements UnitDelegate {
         interdependencyGraph.startUpdates();
         System.out.println(interdependencyGraph.getMeanState());
         glacery.setUnitState(0.7);
+        ProjectUtility.writeGraphToFile(interdependencyGraph, "./graph.json");
     }
 
     @Override

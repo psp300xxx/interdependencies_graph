@@ -1,5 +1,9 @@
 package utility;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import graphs.InterdependencyGraph;
 import graphs.Unit;
 import org.json.JSONObject;
 
@@ -13,6 +17,15 @@ import java.util.Collection;
 import java.util.List;
 
 public class ProjectUtility {
+
+    private static ObjectMapper mapper;
+
+    public static ObjectMapper getMapper(){
+        if(mapper==null){
+            mapper = new ObjectMapper();
+        }
+        return mapper;
+    }
 
     private ProjectUtility(){
 
@@ -35,8 +48,9 @@ public class ProjectUtility {
         return Math.abs(diff) < eps;
     }
 
-    public static void writeJSONtoFile(String path, JSONObject jsonObject) throws IOException{
-        writeJSONtoFile(path, jsonObject, 4);
+    public static void writeGraphToFile(InterdependencyGraph graph, String filepath) throws IOException {
+        String jsonValue = getMapper().writerWithDefaultPrettyPrinter().writeValueAsString(graph);
+        writeStringtoFile(filepath, jsonValue);
     }
 
     public static boolean existsConnection(Unit a, Unit b, boolean firstToSecond){
@@ -50,9 +64,8 @@ public class ProjectUtility {
         return result;
     }
 
-    public static void writeJSONtoFile(String path, JSONObject jsonObject, int indentFactor) throws IOException{
+    public static void writeStringtoFile(String path, String jsonString) throws IOException{
         File file = new File(path);
-        String jsonString = jsonObject.toString(indentFactor);
         FileOutputStream fos = new FileOutputStream(file);
         fos.write(jsonString.getBytes(StandardCharsets.UTF_8));
         fos.flush();

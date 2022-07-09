@@ -1,5 +1,7 @@
 package graphs;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import graphs.publish_subscribe.UnitDelegate;
 import graphs.publish_subscribe.UnitManagerThread;
 import graphs.publish_subscribe.UnitSubscriber;
@@ -8,7 +10,7 @@ import utility.ProjectUtility;
 
 import java.util.List;
 import java.util.Set;
-
+@JsonIgnoreProperties(value = { "delegate" })
 public interface Unit extends UnitSubscriber {
 
 
@@ -30,11 +32,13 @@ public interface Unit extends UnitSubscriber {
             toUnit.addConnection(this, !incoming);
         }
     }
-//    void addConnection(Unit toUnit, boolean incoming, boolean setOpposite);
 
     void setUnitManagerThread( UnitManagerThread newThread );
 
+    @JsonGetter("name")
     String getName();
+
+    @JsonGetter("state")
     double getState();
 
     default String getNodesConnectionsString(){
@@ -67,6 +71,16 @@ public interface Unit extends UnitSubscriber {
     }
 
     double getUnitState();
+
+    @JsonGetter("inboundConnections")
+    default List<Unit> getInboundConnections(){
+        return getConnections(true);
+    }
+
+    @JsonGetter("outboundConnections")
+    default List<Unit> getOutboundConnections(){
+        return getConnections(false);
+    }
 
     List<Unit> getConnections(boolean incoming);
 

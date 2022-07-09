@@ -10,7 +10,6 @@ import java.util.function.Consumer;
 public class InterdependencyGraphImpl implements InterdependencyGraph<Unit>{
 
     private Unit startingUnit;
-    private Map<String, Unit> unitMap;
 
     private String name;
     private AtomicBoolean updateStarted = new AtomicBoolean(false);
@@ -110,8 +109,16 @@ public class InterdependencyGraphImpl implements InterdependencyGraph<Unit>{
         return units;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public Unit getStartingUnit() {
         return startingUnit;
+    }
+
+    public void setStartingUnit(Unit startingUnit) {
+        this.startingUnit = startingUnit;
     }
 }

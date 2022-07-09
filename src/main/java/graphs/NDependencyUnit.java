@@ -112,7 +112,8 @@ public class NDependencyUnit implements Unit{
     }
 
 
-    private List<Unit> getInboundConnections(){
+    @Override
+    public List<Unit> getInboundConnections(){
         if( inboundConnectionsRateValues==null || inboundConnectionsRateValues.keySet()==null ){
             return Collections.emptyList();
         }
@@ -124,6 +125,11 @@ public class NDependencyUnit implements Unit{
         if(incoming){
             return getInboundConnections();
         }
+        return getOutboundConnections();
+    }
+
+    @Override
+    public List<Unit> getOutboundConnections(){
         if( outboundConnections==null ){
             return Collections.emptyList();
         }
