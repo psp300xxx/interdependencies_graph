@@ -35,8 +35,8 @@ public class SoftMaxWeightingFunctionTest {
     public void testWeightsSumCloseTo1(){
         List<Double> input = new ArrayList<>();
 
-        for( int i =0 ; i< 2+random.nextInt(MAX_RANDOM_BOUND); i++ ){
-            input.add( random.nextDouble()*MAX_RANDOM_BOUND );
+        for( int i =0 ; i< 2+random.nextInt(MAX_RANDOM_BOUND); i++ ) {
+            input.add(random.nextDouble() * MAX_RANDOM_BOUND);
         }
         List<Double> result = weightingFunction.getNewWeights(input);
         assertEquals(result.size(), input.size());

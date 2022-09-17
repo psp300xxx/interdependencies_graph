@@ -1,0 +1,17 @@
+/Users/ocramed94/Documents/code_projects/interdependencies_graph/src/main/java/graphs/publish_subscribe/UnitSubscriber.java
+/Users/ocramed94/Documents/code_projects/interdependencies_graph/src/main/java/graphs/publish_subscribe/UnitPublisher.java
+/Users/ocramed94/Documents/code_projects/interdependencies_graph/src/main/java/utility/ProjectUtility.java
+/Users/ocramed94/Documents/code_projects/interdependencies_graph/src/main/java/graphs/InterdependencyGraph.java
+/Users/ocramed94/Documents/code_projects/interdependencies_graph/src/main/java/main/Main.java
+/Users/ocramed94/Documents/code_projects/interdependencies_graph/src/main/java/graphs/WeightingFunction.java
+/Users/ocramed94/Documents/code_projects/interdependencies_graph/src/main/java/graphs/InterdependencyGraphImpl.java
+/Users/ocramed94/Documents/code_projects/interdependencies_graph/src/main/java/graphs/Unit.java
+/Users/ocramed94/Documents/code_projects/interdependencies_graph/src/main/java/main/SpringBootMain.java
+/Users/ocramed94/Documents/code_projects/interdependencies_graph/src/main/java/graphs/SoftMaxWeightingFunction.java
+/Users/ocramed94/Documents/code_projects/interdependencies_graph/src/main/java/graphs/publish_subscribe/UnitDelegate.java
+/Users/ocramed94/Documents/code_projects/interdependencies_graph/src/main/java/graphs/publish_subscribe/AtomicArrayList.java
+/Users/ocramed94/Documents/code_projects/interdependencies_graph/src/main/java/graphs/NDependencyUnit.java
+/Users/ocramed94/Documents/code_projects/interdependencies_graph/src/main/java/graphs/AloneUnit.java
+/Users/ocramed94/Documents/code_projects/interdependencies_graph/src/main/java/graphs/publish_subscribe/UnitMessageImpl.java
+/Users/ocramed94/Documents/code_projects/interdependencies_graph/src/main/java/graphs/publish_subscribe/UnitManagerThread.java
+/Users/ocramed94/Documents/code_projects/interdependencies_graph/src/main/java/graphs/publish_subscribe/UnitMessage.java
