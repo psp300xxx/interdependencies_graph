@@ -35,6 +35,16 @@ public class ProjectUtility {
         return Math.abs(diff) < eps;
     }
 
+    public static boolean getBooleanValue( String value ){
+        if( value==null ){
+            throw new IllegalArgumentException("Null not accepted");
+        }
+        if( value.toUpperCase().equals("TRUE") ){
+            return true;
+        }
+        return false;
+    }
+
     public static void writeJSONtoFile(String path, JSONObject jsonObject) throws IOException{
         writeJSONtoFile(path, jsonObject, 4);
     }

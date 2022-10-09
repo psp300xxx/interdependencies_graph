@@ -17,6 +17,33 @@ public class ProjectUtilityTest {
         assertTrue( ProjectUtility.existsConnection(secondUnit, unit, true) );
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void testBooleanValueParserRaiseExceptionWhenNullIsProvided(){
+        String input = null;
+        ProjectUtility.getBooleanValue(input);
+    }
+
+    @Test
+    public void testBooleanValueParserExpectTrue(){
+        String input = "True";
+        boolean result = ProjectUtility.getBooleanValue(input);
+        assertTrue(result);
+    }
+
+    @Test
+    public void testBooleanValueParserExpectTrueWhenTrueIsProvidedInMixedChars(){
+        String input = "TrUe";
+        boolean result = ProjectUtility.getBooleanValue(input);
+        assertTrue(result);
+    }
+
+    @Test
+    public void testBooleanValueParserExpectFalse(){
+        String input = "false";
+        boolean result = ProjectUtility.getBooleanValue(input);
+        assertFalse(result);
+    }
+
     @Test
     public void testExistMiddleConnectionReturnsFalse(){
         AloneUnit unit = new AloneUnit("unit");

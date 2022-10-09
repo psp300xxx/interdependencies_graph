@@ -11,6 +11,8 @@ public interface InterdependencyGraph<T extends Unit>  {
 
     List<T> getUnitList();
 
+    T getNamedNode(String nodeName);
+
     T getStartingUnit();
 
     default List<Double> getUnitStateList(){

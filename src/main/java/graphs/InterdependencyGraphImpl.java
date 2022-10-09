@@ -111,6 +111,11 @@ public class InterdependencyGraphImpl implements InterdependencyGraph<Unit>{
     }
 
     @Override
+    public Unit getNamedNode(String nodeName) {
+        return unitMap.get(nodeName);
+    }
+
+    @Override
     public Unit getStartingUnit() {
         return startingUnit;
     }
