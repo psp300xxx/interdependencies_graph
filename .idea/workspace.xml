@@ -5,43 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35a952f9-c2be-47a9-ada1-bcb2ccee511a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/graphs/Connection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/graphs/ConnectionImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/graphs/Graph.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/graphs/GraphImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/graphs/GraphIsRunningException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/graphs/GraphUtility.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/graphs/InvalidNewStateException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/graphs/UnitDelegate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/graphs/UnitImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/graphs/UnitManagerThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/graphs/UnitMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/graphs/UnitNotInGraphException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/graphs/UpdateStateMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/graphs/TestGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interdependencies_graph.iml" beforeDir="false" afterPath="$PROJECT_DIR$/interdependencies_graph.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/graphs/AloneUnit.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/graphs/InterdependencyGraph.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/graphs/InterdependencyGraphImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/graphs/NDependencyUnit.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/graphs/SoftMaxWeightingFunction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/graphs/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/graphs/Unit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/graphs/WeightingFunction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/graphs/publish_subscribe/AtomicArrayList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/graphs/publish_subscribe/UnitDelegate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/graphs/publish_subscribe/UnitManagerThread.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/graphs/publish_subscribe/UnitMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/graphs/publish_subscribe/UnitMessageImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/graphs/publish_subscribe/UnitPublisher.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/graphs/publish_subscribe/UnitSubscriber.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utility/ProjectUtility.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/graphs/InterdependencyGraphTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/graphs/MessageDistributionTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/graphs/NDependencyUnitTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/graphs/SoftMaxWeightingFunctionTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/utility/ProjectUtilityTest.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/graphs/TestGraphUtility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/graphs/TestUnit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/graphs/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/graphs/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/graphs/GraphImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/graphs/GraphImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/graphs/TestGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/graphs/TestGraph.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,68 +62,8 @@
       <recent name="graphs" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestGraph.startDeliverTest">
-    <configuration name="SpringBootMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.SpringBootMain" />
-      <module name="interdependencies_graph" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProjectUtilityTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="interdependencies_graph" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="utility.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="utility" />
-      <option name="MAIN_CLASS_NAME" value="utility.ProjectUtilityTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProjectUtilityTest.testBooleanValueParserRaiseExceptionWhenNullIsProvided" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="interdependencies_graph" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="utility.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="utility" />
-      <option name="MAIN_CLASS_NAME" value="utility.ProjectUtilityTest" />
-      <option name="METHOD_NAME" value="testBooleanValueParserRaiseExceptionWhenNullIsProvided" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SerializationTest.testAloneUnitSerialization" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="interdependencies_graph" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="graphs.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="graphs" />
-      <option name="MAIN_CLASS_NAME" value="graphs.SerializationTest" />
-      <option name="METHOD_NAME" value="testAloneUnitSerialization" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestGraph.startDeliverTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.TestGraph">
+    <configuration name="TestGraph" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="interdependencies_graph" />
       <extension name="coverage">
         <pattern>
@@ -164,8 +73,69 @@
       </extension>
       <option name="PACKAGE_NAME" value="graphs" />
       <option name="MAIN_CLASS_NAME" value="graphs.TestGraph" />
-      <option name="METHOD_NAME" value="startDeliverTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestGraphUtility" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="interdependencies_graph" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="graphs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="graphs" />
+      <option name="MAIN_CLASS_NAME" value="graphs.TestGraphUtility" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestGraphUtility.test_closeEnough" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="interdependencies_graph" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="graphs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="graphs" />
+      <option name="MAIN_CLASS_NAME" value="graphs.TestGraphUtility" />
+      <option name="METHOD_NAME" value="test_closeEnough" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestGraphUtility.test_closeEnoughFalse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="interdependencies_graph" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="graphs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="graphs" />
+      <option name="MAIN_CLASS_NAME" value="graphs.TestGraphUtility" />
+      <option name="METHOD_NAME" value="test_closeEnoughFalse" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestUnit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="interdependencies_graph" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="graphs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="graphs" />
+      <option name="MAIN_CLASS_NAME" value="graphs.TestUnit" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -197,20 +167,20 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Application.SpringBootMain" />
-      <item itemvalue="JUnit.TestGraph.startDeliverTest" />
-      <item itemvalue="JUnit.SerializationTest.testAloneUnitSerialization" />
-      <item itemvalue="JUnit.ProjectUtilityTest" />
-      <item itemvalue="JUnit.ProjectUtilityTest.testBooleanValueParserRaiseExceptionWhenNullIsProvided" />
+      <item itemvalue="JUnit.TestGraph" />
+      <item itemvalue="JUnit.TestGraphUtility" />
+      <item itemvalue="JUnit.TestGraphUtility.test_closeEnough" />
+      <item itemvalue="JUnit.TestGraphUtility.test_closeEnoughFalse" />
+      <item itemvalue="JUnit.TestUnit" />
       <item itemvalue="Maven.interdependencies_graph [clean,install]" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestGraph.startDeliverTest" />
-        <item itemvalue="JUnit.SerializationTest.testAloneUnitSerialization" />
-        <item itemvalue="JUnit.ProjectUtilityTest" />
-        <item itemvalue="JUnit.ProjectUtilityTest.testBooleanValueParserRaiseExceptionWhenNullIsProvided" />
-        <item itemvalue="Application.SpringBootMain" />
+        <item itemvalue="JUnit.TestGraph" />
+        <item itemvalue="JUnit.TestUnit" />
+        <item itemvalue="JUnit.TestGraphUtility" />
+        <item itemvalue="JUnit.TestGraphUtility.test_closeEnoughFalse" />
+        <item itemvalue="JUnit.TestGraphUtility.test_closeEnough" />
       </list>
     </recent_temporary>
   </component>
@@ -233,7 +203,7 @@
       <workItem from="1665825466458" duration="1536000" />
       <workItem from="1668859261329" duration="1802000" />
       <workItem from="1668865622778" duration="887000" />
-      <workItem from="1670074133602" duration="12228000" />
+      <workItem from="1670074133602" duration="13388000" />
     </task>
     <servers />
   </component>
@@ -259,17 +229,18 @@
           <line>37</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/graphs/TestGraph.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/interdependencies_graph$TestUnit.ic" NAME="TestUnit Coverage Results" MODIFIED="1670174672739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>graphs.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/interdependencies_graph$ProjectUtilityTest.ic" NAME="ProjectUtilityTest Coverage Results" MODIFIED="1665319671343" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>utility.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/interdependencies_graph$TestGraph.ic" NAME="TestGraph Coverage Results" MODIFIED="1670174992808" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>graphs.*</FILTER>
     </SUITE>
   </component>
 </project>

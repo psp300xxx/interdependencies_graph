@@ -22,13 +22,13 @@ public interface Graph<T extends Unit> {
 
     Set<T> getUnits();
 
-    void addConnection(String from, String to, Double weight);
+    void addConnection(String from, String to, Double weight) throws GraphIsRunningException;
 
-    void addConnection(T from, T to, Double weight);
+    void addConnection(T from, T to, Double weight) throws GraphIsRunningException;
 
-    void addConnection(String from, String to);
+    void addConnection(String from, String to) throws GraphIsRunningException;
 
-    void addConnection(T from, T to);
+    void addConnection(T from, T to) throws GraphIsRunningException;
 
     int numberOfThreads();
 

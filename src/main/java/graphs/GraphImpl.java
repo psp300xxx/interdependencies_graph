@@ -72,7 +72,7 @@ public class GraphImpl implements Graph<Unit>{
         Set<Unit> unitList = getUnits();
         List<UnitManagerThread> threads = new ArrayList<>();
         LOGGER.info("Starting graph: "+ getName());
-        for( int i = 0; i<this.numberOfThreads; i++ ){
+        for( int i = 0; i<this.numberOfThreads(); i++ ){
             threads.add( new UnitManagerThread()  );
         }
         assignThreadToUnit(unitList, threads);
@@ -85,7 +85,10 @@ public class GraphImpl implements Graph<Unit>{
 
     public void stopUpdates(){
 //        TODO: Implement
-        throw new RuntimeException("Not implemented method");
+        for(UnitManagerThread thread : new HashSet<>(unitThreadMap.values())){
+            thread.stopThread();
+        }
+        isGraphRunning = false;
     }
 
     private void assignThreadToUnit(Set<Unit> units, List<UnitManagerThread> threads){
@@ -141,7 +144,7 @@ public class GraphImpl implements Graph<Unit>{
     }
 
     @Override
-    public void addConnection(String from, String to, Double weight) {
+    public void addConnection(String from, String to, Double weight) throws GraphIsRunningException {
         List<String> missing = new LinkedList<>();
         Unit source = getNamedNode(from);
         boolean isSourceMissing = source==null;
@@ -160,23 +163,27 @@ public class GraphImpl implements Graph<Unit>{
     }
 
     @Override
-    public void addConnection(Unit from, Unit to, Double weight) {
+    public void addConnection(Unit from, Unit to, Double weight) throws GraphIsRunningException {
         Set<Connection> connections = connectionMap.get(from);
+        if(isGraphRunning){
+            throw new GraphIsRunningException(this);
+        }
         if(connections==null){
             connections = new HashSet<>();
         }
         Connection newConnection = new ConnectionImpl(from, to, weight);
         connections.add(newConnection);
         connectionMap.put(from, connections);
+        isUnitListValid = false;
     }
 
     @Override
-    public void addConnection(String from, String to) {
+    public void addConnection(String from, String to) throws GraphIsRunningException {
         addConnection(from, to, null);
     }
 
     @Override
-    public void addConnection(Unit from, Unit to) {
+    public void addConnection(Unit from, Unit to) throws GraphIsRunningException {
         addConnection(from, to, null);
     }
 

@@ -19,7 +19,7 @@ public class TestGraph {
     private final int NUMBER_OF_NODES = 5;
 
     @Before
-    public void setup(){
+    public void setup() throws GraphIsRunningException {
         org.apache.log4j.BasicConfigurator.configure();
         received = new HashMap<>();
         Unit startingUnit = createUnit("start", 1.0);
@@ -27,6 +27,7 @@ public class TestGraph {
         startingUnit.setGraph(graph);
         startingUnit.setDelegate(delegate);
         graph.setStartingNode(startingUnit);
+        received.put(startingUnit.getName(), new AtomicBoolean(false));
         Unit currentFrom = startingUnit;
         for( int i = 0; i<NUMBER_OF_NODES; i++ ){
             Unit newUnit = createUnitOfGraph(graph, String.format("subunit_%d", i),1.0, currentFrom.getName());
@@ -35,6 +36,7 @@ public class TestGraph {
             graph.addConnection(currentFrom, newUnit);
             currentFrom = newUnit;
         }
+        graph.addConnection(currentFrom.getName(), startingUnit.getName());
     }
 
     public class DelegateImpl implements UnitDelegate {
@@ -72,12 +74,32 @@ public class TestGraph {
         int i = 0;
         while(i++<TIMEOUT_SECONDS){
             if(allTrue()){
-//                graph.stopUpdates();
                 return;
             }
             Thread.sleep(1000);
         }
         Assert.fail("There is at least a never touched node: "+ received);
+    }
+
+    @Test
+    public void test_default_predicate_when_null(){
+        Double input = null;
+        boolean result = GraphImpl.DEFAULT_PREDICATE.test(input);
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void test_default_predicate_when_outOfBoundsIsProvided(){
+        Double input = 2.0;
+        boolean result = GraphImpl.DEFAULT_PREDICATE.test(input);
+        Assert.assertFalse(result);
+    }
+
+    @Test
+    public void test_default_predicate_when_inBoundsIsProvided(){
+        Double input = 0.5;
+        boolean result = GraphImpl.DEFAULT_PREDICATE.test(input);
+        Assert.assertTrue(result);
     }
 
 }
