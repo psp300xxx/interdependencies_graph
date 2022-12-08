@@ -1,7 +1,7 @@
 package graphs;
 
-import jdk.jshell.spi.ExecutionControl;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.*;
 import java.util.function.Predicate;
@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class GraphImpl implements Graph<Unit>{
 
-    private static Logger LOGGER =  Logger.getLogger("GraphImpl");
+    private static Logger LOGGER =  LoggerFactory.getLogger("GraphImpl");
 
     private UnitDelegate unitDelegate;
 

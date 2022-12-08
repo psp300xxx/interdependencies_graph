@@ -1,11 +1,11 @@
 package graphs;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
-import java.util.Stack;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -13,7 +13,7 @@ public class UnitManagerThread extends Thread{
 
     public static final long WAITING_TIME = 1000;
 
-    private static Logger LOGGER =  Logger.getLogger("UnitManagerThread");
+    private static Logger LOGGER =  LoggerFactory.getLogger("UnitManagerThread");
 
     private Lock lock = new ReentrantLock();
 

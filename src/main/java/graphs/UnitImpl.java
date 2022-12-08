@@ -1,12 +1,13 @@
 package graphs;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.function.Predicate;
 
 public class UnitImpl implements Unit{
 
-    private static Logger LOGGER =  Logger.getLogger("UnitImpl");
+    private static Logger LOGGER =  LoggerFactory.getLogger("UnitImpl");
 
     private Graph<Unit> graph;
 

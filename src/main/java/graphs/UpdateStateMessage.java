@@ -1,12 +1,13 @@
 package graphs;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class UpdateStateMessage implements UnitMessage{
 
     private Unit sourceUnit;
 
-    private static Logger LOGGER =  Logger.getLogger("UpdateStateMessage");
+    private static Logger LOGGER =  LoggerFactory.getLogger("UpdateStateMessage");
 
     public static final double DEFAULT_WEIGHT = 0.1;
 
