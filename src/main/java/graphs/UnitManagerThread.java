@@ -11,6 +11,8 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class UnitManagerThread extends Thread{
 
+    public static final long WAITING_TIME = 1000;
+
     private static Logger LOGGER =  Logger.getLogger("UnitManagerThread");
 
     private Lock lock = new ReentrantLock();
@@ -43,10 +45,12 @@ public class UnitManagerThread extends Thread{
                 lock.unlock();
             }
             try {
-                Thread.sleep(1000);
+                Thread.sleep(WAITING_TIME);
             } catch (InterruptedException e) {
+                LOGGER.warn(getName() + " was inturrupted due to: "+e.getMessage());
                 throw new RuntimeException(e);
             }
         }
+        LOGGER.info(this.getName() + " is going to terminate");
     }
 }

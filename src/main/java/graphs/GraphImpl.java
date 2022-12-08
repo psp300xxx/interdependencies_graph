@@ -11,8 +11,21 @@ public class GraphImpl implements Graph<Unit>{
 
     private static Logger LOGGER =  Logger.getLogger("GraphImpl");
 
+    private UnitDelegate unitDelegate;
 
-    public GraphImpl(Unit startingUnit, String name,int threadNumber){
+
+    @Override
+    public void setUnitDelegate(UnitDelegate unitDelegate, Predicate<Unit> applyToUnit) {
+        this.unitDelegate = unitDelegate;
+        Set<Unit> units = getUnits();
+        for( Unit unit : units ){
+            if(applyToUnit.test(unit)){
+                unit.setDelegate(this.unitDelegate);
+            }
+        }
+    }
+
+    public GraphImpl(Unit startingUnit, String name, int threadNumber){
         this.startingUnit = startingUnit;
         this.numberOfThreads = threadNumber;
         this.name = name;
@@ -84,7 +97,6 @@ public class GraphImpl implements Graph<Unit>{
     }
 
     public void stopUpdates(){
-//        TODO: Implement
         for(UnitManagerThread thread : new HashSet<>(unitThreadMap.values())){
             thread.stopThread();
         }
@@ -115,6 +127,7 @@ public class GraphImpl implements Graph<Unit>{
             for( Connection connection : connections ){
                 UnitMessage message = unitMessage.copy();
                 if(connection.weight() !=null){
+                    LOGGER.info("Setting weight for connection: "+connection+" to value: "+connection.weight());
                     message.setConnectionWeight(connection.weight());
                 }
                 message.setDestination(connection.getTo());

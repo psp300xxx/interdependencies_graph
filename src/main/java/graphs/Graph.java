@@ -12,6 +12,12 @@ public interface Graph<T extends Unit> {
 
     Map<T, Set<Connection>> getConnectionMap();
 
+    void setUnitDelegate(UnitDelegate delegate, Predicate<Unit> applyToUnit);
+
+    default void setUnitDelegate(UnitDelegate delegate){
+        setUnitDelegate(delegate, (x)->true);
+    }
+
     void startUpdates() throws GraphIsRunningException;
 
     void stopUpdates();

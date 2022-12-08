@@ -1,8 +1,14 @@
 package graphs;
 
+import org.apache.log4j.Logger;
+
 public class UpdateStateMessage implements UnitMessage{
 
     private Unit sourceUnit;
+
+    private static Logger LOGGER =  Logger.getLogger("UpdateStateMessage");
+
+    public static final double DEFAULT_WEIGHT = 0.1;
 
     private Unit destination;
 
@@ -34,7 +40,8 @@ public class UpdateStateMessage implements UnitMessage{
 
     public Double getConnectionWeight() {
         if(connectionWeight==null){
-            return 0.1;
+            LOGGER.warn("Weight is null, returning default value: "+DEFAULT_WEIGHT);
+            return DEFAULT_WEIGHT;
         }
         return connectionWeight;
     }

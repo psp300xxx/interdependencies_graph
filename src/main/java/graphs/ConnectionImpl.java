@@ -25,6 +25,11 @@ public class ConnectionImpl implements Connection<Unit>{
     }
 
     @Override
+    public String toString() {
+        return String.format("Node from:'%s' to '%s'",this.from, this.to);
+    }
+
+    @Override
     public Double weight() {
         return weight;
     }
