@@ -11,16 +11,13 @@ public class GraphImpl implements Graph<Unit>{
 
     private static Logger LOGGER =  LoggerFactory.getLogger("GraphImpl");
 
-    private UnitDelegate unitDelegate;
-
 
     @Override
     public void setUnitDelegate(UnitDelegate unitDelegate, Predicate<Unit> applyToUnit) {
-        this.unitDelegate = unitDelegate;
         Set<Unit> units = getUnits();
         for( Unit unit : units ){
             if(applyToUnit.test(unit)){
-                unit.setDelegate(this.unitDelegate);
+                unit.setDelegate(unitDelegate);
             }
         }
     }
