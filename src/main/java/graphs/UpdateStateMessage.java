@@ -30,6 +30,10 @@ public class UpdateStateMessage implements UnitMessage{
         return newState - oldState;
     }
 
+    @Override
+    public String toString() {
+        return String.format("[Message] From='%s', To='%s', oldState='%.2f',newState='%.2f'", sourceUnit, destination, oldState, newState);
+    }
 
     public Double getNewState() {
         return newState;

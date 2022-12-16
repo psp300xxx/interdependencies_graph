@@ -101,6 +101,11 @@ public class UnitImpl implements Unit{
     }
 
     @Override
+    public String toString() {
+        return String.format("[Node] Name='%s', State='%s'", getName(), getState());
+    }
+
+    @Override
     public void receiveMessage(UnitMessage message) {
         if(delegate!=null){
             delegate.updatedReceived(this, message);

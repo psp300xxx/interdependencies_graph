@@ -130,12 +130,7 @@ public class TestGraph {
         Unit unit = new UnitImpl(graph, "unit",0.2);
         graph.stopUpdates();
         AtomicBoolean newNodeTouched = new AtomicBoolean(false);
-        unit.setDelegate(new UnitDelegate() {
-            @Override
-            public void updatedReceived(Unit unit, UnitMessage message) {
-                newNodeTouched.compareAndSet(false, true);
-            }
-        });
+        unit.setDelegate( (x,y) -> newNodeTouched.compareAndSet(false, true));
         graph.addConnection(graph.getStartingUnit(), unit);
         graph.startUpdates();
         int secondsTimeout = 30;
