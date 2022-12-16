@@ -144,6 +144,7 @@ public class GraphImpl implements Graph<Unit>{
         }
         units = new HashSet<>();
         visitGraph((unit) -> units.add(unit));
+        isUnitListValid = true;
         return units;
     }
 
